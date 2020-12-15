@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>  
+<!--Online scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><!--JQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.1.2/math.min.js"></script><!--math.js-->
+
+<link rel="stylesheet" href="landing-page.component.css"--->
+
+</head>
+<body>
+<div id="bg">
+<div id="container">
+    
+    <div class="title">Discord Data</div>
+    <div class="desc">
+        In order to use this website, pelase start by downloading your discord messages in the form of a textfile using <a href="https://github.com/Tyrrrz/DiscordChatExporter/releases/tag/2.25">this</a>.
+        Once you have your file, upload it below. You must fill in the "Discord Username" space with your username and the "Friends Usernames" with the people included in the direct messages (NOTE: if you are doing a server channel, limit the names to only 10 people, only data for those 10 people will show up). <b>Be sure to include the # and numbers following your name</b>.
+        When inputting names, take care they reflect what discord sees exactly as this is <b>case-sensetive</b>. Lastly, in "Words to search for"
+        include up to 10 words and <b>separate them with spaces</b>. If the word is used by any user, a pie chart will show up. If the word is not used at all in the messages, the chart will not show up.
+    </div>
+
+    <div id="holder">
+
+        <div class="text-center"> 
+            <input (change)="onChange($event)" class="form-control" type="file" > <!---(change)="onChange($event)"-->
+        </div> <br><br>
+
+        <!--ask for users username-->
+        <label for="fname">Discord Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" id="fname" [(ngModel)]="user"><br><br>
+
+        <!--ask for other users usernames, up to 10, separated by comma-->
+        <p class="formfield">
+            <label for="fname">Friends Usernames (max 10) :</label>
+            <textarea rows = "4" cols = "60" [(ngModel)]="friends"></textarea>
+        </p>
+
+        <!--ask for words to search for-->
+        <p class="formfield">
+            <label for="fname">Words to search for (max 10):</label>
+            <textarea rows = "2" cols = "60" [(ngModel)]="words"></textarea>
+        </p><br><br>
+
+                  
+        <button (click)="launch()" class="btn btn-success"> <!--  (click)="onUpload()"-->
+            Upload 
+        </button> 
+        <div class="container" *ngIf="loading"> 
+            <h3>Loading ...</h3> 
+        </div>
+        <p *ngIf="issue">
+            Please fill in your username and at least on other friends username.
+        </p>
+    </div>
+
+
+</div>
+</div>
+
+</body>
+</html>

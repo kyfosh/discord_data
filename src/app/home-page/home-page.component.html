@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>  
+<!--Online scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><!--JQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.1.2/math.min.js"></script><!--math.js-->
+
+<!--script type="text/javascript" src="parse.js"></script>
+<script type="text/javascript" src="main.js"></script-->
+
+<!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css"--->
+
+</head>
+<body>
+
+    <div id="super">
+<div id="container">
+    
+    <div class="title">General Data</div>
+
+    <div class="large_grid">
+        <div class="large_stat"><canvas id="messages" height="300"></canvas></div>
+        <div class="large_stat" *ngIf="ifURL"><canvas id="links" height="200"></canvas></div>
+        <div class="large_stat" *ngIf="ifEmote"><canvas id="emojis" height="200"></canvas></div>
+        <div class="large_stat" *ngIf="ifImages"><canvas id="images" height="300"></canvas></div>
+        <div class="large_stat" *ngIf="ifReact"><canvas id="reactions" height="200"></canvas></div>
+        <div class="large_stat" *ngIf="ifTag"><canvas id="tags" height="300"></canvas></div>
+        <div class="large_stat" *ngIf="(type != 'server')" style="padding:20px;">In this chat, {{calls[0]}} calls were made. The average call length was {{calls[3]}} minutes with {{calls[2]}} minutes being the length of the longest call made.</div>
+    </div>
+
+
+    <div class="title" style="margin-bottom:20px;">Word Data</div>
+
+    <div class="small_grid">
+    </div>
+
+
+</div>
+</div>
+
+</body>
+</html>
